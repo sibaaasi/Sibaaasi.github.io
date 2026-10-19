@@ -1,277 +1,1009 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Siba Aasi — Electrical Engineer</title>
-<meta name="description" content="Electrical engineer interested in signal processing, medical technology, machine learning, and sustainable energy.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet">
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Siba Aasi — Electrical Engineer</title>
+  <meta name="description" content="Electrical engineer interested in medical technology, signal processing, machine learning, and sustainable energy.">
 
-  :root {
-    --bg: #f4ede1;
-    --surface: #faf6ee;
-    --ink: #2b2236;
-    --muted: #6f6578;
-    --purple: #6a3fc4;
-    --purple-deep: #4b2a94;
-    --lilac: #e6dcf6;
-    --line: rgba(43,34,54,0.12);
-    --font-display: 'Fraunces', Georgia, serif;
-    --font-body: 'DM Sans', system-ui, sans-serif;
-  }
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet">
 
-  html { scroll-behavior: smooth; }
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-  body {
-    background: var(--bg);
-    color: var(--ink);
-    font-family: var(--font-body);
-    font-size: 16px;
-    line-height: 1.7;
-    -webkit-font-smoothing: antialiased;
-  }
+    /* Change your colors here */
+    :root {
+      --bg: #f4ede1;
+      --surface: #faf6ee;
+      --ink: #2b2236;
+      --muted: #6f6578;
+      --purple: #6a3fc4;
+      --purple-deep: #4b2a94;
+      --lilac: #e6dcf6;
+      --line: rgba(43, 34, 54, 0.12);
+      --font-display: "Fraunces", Georgia, serif;
+      --font-body: "DM Sans", system-ui, sans-serif;
+    }
 
-  ::selection { background: var(--purple); color: #fff; }
+    html {
+      scroll-behavior: smooth;
+    }
 
-  a { color: inherit; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
 
-  .wrap { max-width: 860px; margin: 0 auto; padding: 0 1.5rem; }
+    ::selection {
+      background: var(--purple);
+      color: white;
+    }
 
-  /* NAV */
-  header {
-    position: sticky; top: 0; z-index: 50;
-    background: rgba(244,237,225,0.88);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--line);
-  }
-  .nav { display: flex; align-items: center; justify-content: space-between; padding: 1rem 0; }
-  .logo { font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; text-decoration: none; color: var(--purple-deep); }
-  .nav ul { display: flex; gap: 1.75rem; list-style: none; }
-  .nav ul a { text-decoration: none; font-size: 0.85rem; font-weight: 500; color: var(--muted); transition: color .2s; }
-  .nav ul a:hover { color: var(--purple); }
+    a {
+      color: inherit;
+    }
 
-  /* HERO */
-  .hero { padding: 6rem 0 4.5rem; position: relative; overflow: hidden; }
-  .eyebrow {
-    display: inline-block; font-size: 0.78rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
-    color: var(--purple); background: var(--lilac); padding: .35rem .9rem; border-radius: 999px; margin-bottom: 1.5rem;
-  }
-  h1 {
-    font-family: var(--font-display); font-weight: 600; font-size: clamp(2.6rem, 7vw, 4.6rem);
-    line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 1.5rem;
-  }
-  h1 em { color: var(--purple); font-style: italic; font-weight: 400; }
-  .lead { max-width: 560px; color: var(--muted); font-size: 1.1rem; margin-bottom: 2.25rem; }
-  .btns { display: flex; gap: .9rem; flex-wrap: wrap; }
-  .btn {
-    display: inline-block; padding: .8rem 1.5rem; border-radius: 999px; font-weight: 600; font-size: .9rem;
-    text-decoration: none; transition: transform .2s, background .2s, color .2s, border-color .2s;
-  }
-  .btn-primary { background: var(--purple); color: #fff; }
-  .btn-primary:hover { background: var(--purple-deep); transform: translateY(-2px); }
-  .btn-ghost { border: 1.5px solid var(--ink); color: var(--ink); }
-  .btn-ghost:hover { border-color: var(--purple); color: var(--purple); transform: translateY(-2px); }
+    a:focus-visible,
+    summary:focus-visible {
+      outline: 3px solid var(--purple);
+      outline-offset: 4px;
+    }
 
-  .pulse { margin-top: 3.5rem; width: 100%; height: 70px; }
-  .pulse path {
-    fill: none; stroke: var(--purple); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
-    stroke-dasharray: 1400; stroke-dashoffset: 1400; animation: draw 3s ease-out .4s forwards;
-  }
-  @keyframes draw { to { stroke-dashoffset: 0; } }
+    .wrap {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
 
-  /* SECTIONS */
-  section { padding: 4.5rem 0; border-top: 1px solid var(--line); }
-  .sec-head { display: flex; align-items: baseline; gap: 1rem; margin-bottom: 2.5rem; }
-  h2 { font-family: var(--font-display); font-size: 2rem; font-weight: 600; letter-spacing: -0.01em; }
-  .sec-note { font-size: .85rem; color: var(--muted); }
+    /* Navigation */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(244, 237, 225, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
 
-  /* PROJECTS */
-  .projects { display: grid; gap: 1.25rem; }
-  .card {
-    background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 1.75rem;
-    transition: transform .25s, box-shadow .25s, border-color .25s;
-  }
-  .card:hover { transform: translateY(-3px); box-shadow: 0 14px 34px rgba(75,42,148,.12); border-color: rgba(106,63,196,.35); }
-  .card-top { display: flex; justify-content: space-between; gap: 1rem; align-items: baseline; margin-bottom: .6rem; flex-wrap: wrap; }
-  .num { font-family: var(--font-display); font-size: .95rem; color: var(--purple); font-style: italic; }
-  h3 { font-family: var(--font-display); font-size: 1.35rem; font-weight: 600; line-height: 1.25; }
-  .card p { color: var(--muted); font-size: .95rem; margin-bottom: 1rem; }
-  .tags { display: flex; flex-wrap: wrap; gap: .45rem; margin-bottom: 1.1rem; }
-  .tag { font-size: .75rem; font-weight: 500; background: var(--lilac); color: var(--purple-deep); padding: .2rem .7rem; border-radius: 999px; }
-  .card a.link { font-size: .88rem; font-weight: 600; color: var(--purple); text-decoration: none; }
-  .card a.link:hover { text-decoration: underline; }
-  .card .result { font-size: .85rem; color: var(--ink); background: rgba(106,63,196,.07); border-left: 3px solid var(--purple); padding: .5rem .8rem; border-radius: 0 8px 8px 0; margin-bottom: 1rem; }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 0;
+    }
 
-  /* SKILLS */
-  .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.25rem; }
-  .skill-box { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 1.5rem; }
-  .skill-box h3 { font-size: 1.05rem; margin-bottom: .8rem; color: var(--purple-deep); }
-  .skill-box ul { list-style: none; display: grid; gap: .35rem; font-size: .92rem; color: var(--muted); }
-  .skill-box li::before { content: '◆'; color: var(--purple); font-size: .6rem; margin-right: .6rem; vertical-align: middle; }
+    .logo {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.15rem;
+      text-decoration: none;
+      color: var(--purple-deep);
+    }
 
-  /* ABOUT */
-  .about p { max-width: 620px; color: var(--muted); font-size: 1.05rem; }
-  .about p + p { margin-top: 1rem; }
+    .nav ul {
+      display: flex;
+      gap: 1.75rem;
+      list-style: none;
+    }
 
-  /* CONTACT */
-  .contact { text-align: center; }
-  .contact h2 { font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 1rem; }
-  .contact p { color: var(--muted); max-width: 460px; margin: 0 auto 2rem; }
-  .mail { font-family: var(--font-display); font-size: clamp(1.2rem, 4vw, 1.8rem); color: var(--purple); text-decoration: none; border-bottom: 2px solid var(--lilac); transition: border-color .2s; word-break: break-all; }
-  .mail:hover { border-color: var(--purple); }
+    .nav ul a {
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
 
-  footer { padding: 2rem 0 3rem; border-top: 1px solid var(--line); font-size: .85rem; color: var(--muted); }
-  .foot { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
-  .foot a { text-decoration: none; }
-  .foot a:hover { color: var(--purple); }
+    .nav ul a:hover {
+      color: var(--purple);
+    }
 
-  /* REVEAL */
-  .reveal { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; }
-  .reveal.in { opacity: 1; transform: none; }
+    /* Introduction */
+    .hero {
+      padding: 6rem 0 4.5rem;
+      overflow: hidden;
+    }
 
-  @media (max-width: 600px) {
-    .nav ul li:not(:last-child) { display: none; }
-    .hero { padding: 4rem 0 3rem; }
-    section { padding: 3.5rem 0; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .pulse path { animation: none; stroke-dashoffset: 0; }
-    .reveal { opacity: 1; transform: none; transition: none; }
-  }
-</style>
+    .eyebrow {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--purple);
+      background: var(--lilac);
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      margin-bottom: 1.5rem;
+    }
+
+    h1 {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: clamp(2.6rem, 7vw, 4.6rem);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+    }
+
+    h1 em {
+      color: var(--purple);
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    .lead {
+      max-width: 560px;
+      color: var(--muted);
+      font-size: 1.1rem;
+      margin-bottom: 2.25rem;
+    }
+
+    .btns {
+      display: flex;
+      gap: 0.9rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 1.5rem;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: transform 0.2s, background 0.2s, color 0.2s;
+    }
+
+    .btn-primary {
+      background: var(--purple);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--purple-deep);
+      transform: translateY(-2px);
+    }
+
+    .btn-ghost {
+      border: 1.5px solid var(--ink);
+      color: var(--ink);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--purple);
+      color: var(--purple);
+      transform: translateY(-2px);
+    }
+
+    .pulse {
+      margin-top: 3.5rem;
+      width: 100%;
+      height: 70px;
+    }
+
+    .pulse path {
+      fill: none;
+      stroke: var(--purple);
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-dasharray: 1400;
+      stroke-dashoffset: 1400;
+      animation: draw 3s ease-out 0.4s forwards;
+    }
+
+    @keyframes draw {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    /* Sections */
+    section {
+      padding: 4.5rem 0;
+      border-top: 1px solid var(--line);
+      scroll-margin-top: 5rem;
+    }
+
+    .sec-head {
+      display: flex;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      margin-bottom: 2.5rem;
+    }
+
+    h2 {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+
+    .sec-note {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    /* Project cards */
+    .projects {
+      display: grid;
+      gap: 1.25rem;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 1.75rem;
+      transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 34px rgba(75, 42, 148, 0.12);
+      border-color: rgba(106, 63, 196, 0.35);
+    }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: baseline;
+      margin-bottom: 0.6rem;
+    }
+
+    .num {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      color: var(--purple);
+      font-style: italic;
+      flex-shrink: 0;
+    }
+
+    h3 {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 600;
+      line-height: 1.25;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .tag {
+      font-size: 0.75rem;
+      font-weight: 500;
+      background: var(--lilac);
+      color: var(--purple-deep);
+      padding: 0.2rem 0.7rem;
+      border-radius: 999px;
+    }
+
+    .project-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem 1.4rem;
+    }
+
+    .link {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--purple);
+      text-decoration: none;
+    }
+
+    .link:hover {
+      text-decoration: underline;
+    }
+
+    details {
+      margin-bottom: 1.15rem;
+      border-top: 1px solid var(--line);
+      padding-top: 0.8rem;
+    }
+
+    summary {
+      cursor: pointer;
+      color: var(--purple-deep);
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .detail-body {
+      padding-top: 1rem;
+    }
+
+    .exercise-list {
+      padding-left: 1.2rem;
+    }
+
+    .exercise-list li {
+      padding-left: 0.25rem;
+      margin-bottom: 1rem;
+    }
+
+    .exercise-list strong {
+      font-size: 0.92rem;
+    }
+
+    .exercise-list p {
+      margin: 0.25rem 0 0;
+    }
+
+    .card .project-note {
+      font-size: 0.82rem;
+    }
+
+    /* Skills */
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .skill-box {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 1.5rem;
+    }
+
+    .skill-box h3 {
+      font-size: 1.05rem;
+      margin-bottom: 0.8rem;
+      color: var(--purple-deep);
+    }
+
+    .skill-box ul {
+      list-style: none;
+      display: grid;
+      gap: 0.35rem;
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    .skill-box li::before {
+      content: "◆";
+      color: var(--purple);
+      font-size: 0.6rem;
+      margin-right: 0.6rem;
+      vertical-align: middle;
+    }
+
+    /* About */
+    .about p {
+      max-width: 620px;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .about p + p {
+      margin-top: 1rem;
+    }
+
+    /* Contact */
+    .contact {
+      text-align: center;
+    }
+
+    .contact h2 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      margin-bottom: 1rem;
+    }
+
+    .contact p {
+      color: var(--muted);
+      max-width: 460px;
+      margin: 0 auto 2rem;
+    }
+
+    .mail {
+      font-family: var(--font-display);
+      font-size: clamp(1.2rem, 4vw, 1.8rem);
+      color: var(--purple);
+      text-decoration: none;
+      border-bottom: 2px solid var(--lilac);
+      transition: border-color 0.2s;
+      overflow-wrap: anywhere;
+    }
+
+    .mail:hover {
+      border-color: var(--purple);
+    }
+
+    /* Footer */
+    footer {
+      padding: 2rem 0 3rem;
+      border-top: 1px solid var(--line);
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .foot {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .foot a {
+      text-decoration: none;
+    }
+
+    .foot a:hover {
+      color: var(--purple);
+    }
+
+    /* Reveal animation */
+    .js .reveal {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .js .reveal.in {
+      opacity: 1;
+      transform: none;
+    }
+
+    @media (max-width: 600px) {
+      .nav ul {
+        gap: 1rem;
+      }
+
+      .nav ul a {
+        font-size: 0.78rem;
+      }
+
+      .hero {
+        padding: 4rem 0 3rem;
+      }
+
+      section {
+        padding: 3.5rem 0;
+      }
+
+      .card {
+        padding: 1.35rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .pulse path {
+        animation: none;
+        stroke-dashoffset: 0;
+      }
+
+      .js .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+
+      .card,
+      .btn {
+        transition: none;
+      }
+
+      .card:hover,
+      .btn:hover {
+        transform: none;
+      }
+    }
+  </style>
 </head>
-<body>
 
-<header>
-  <div class="wrap nav">
-    <a href="#" class="logo">YN.</a>
-    <ul>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </div>
-</header>
+<body id="top">
 
-<main>
-<div class="wrap">
+  <!-- NAVIGATION -->
+  <header>
+    <nav class="wrap nav" aria-label="Main navigation">
+      <a href="#top" class="logo" aria-label="Siba Aasi home">SA.</a>
+      <ul>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <div class="hero">
-    <span class="eyebrow">Electrical Engineer · Medical Technology</span>
-    <h1>Engineering that <em>sees</em> what the clinician needs to see.</h1>
-    <p class="lead">I'm an electrical engineer building toward a career in medical technology, with hands-on work in image processing, segmentation and machine learning.</p>
-    <div class="btns">
-      <a href="#projects" class="btn btn-primary">See my work</a>
-      <a href="mailto:sibaaasi@gmail.com" class="btn btn-ghost">Get in touch</a>
-    </div>
-    <svg class="pulse" viewBox="0 0 800 70" preserveAspectRatio="none" aria-hidden="true">
-      <path d="M0 35 H180 L200 35 L215 8 L235 62 L250 35 H330 L345 28 L360 35 H520 L535 35 L550 5 L572 64 L588 35 H680 L695 29 L710 35 H800"/>
-    </svg>
-  </div>
+  <main>
+    <div class="wrap">
 
-  <section id="projects">
-    <div class="sec-head reveal">
-      <h2>Selected projects</h2>
-      <span class="sec-note">Python · Jupyter notebooks</span>
-    </div>
+      <!-- INTRODUCTION -->
+      <div class="hero">
+        <span class="eyebrow">Siba Aasi · Electrical Engineer</span>
 
-    <div class="projects">
+        <h1>Engineering with <em>purpose.</em></h1>
 
-      <article class="card reveal">
-        <div class="card-top"><h3>Brain-image segmentation</h3><span class="num">01</span></div>
-        <p>Intensity-based segmentation of a grayscale brain image. Each pixel intensity is clustered with K-means (compared across 3, 4 and 5 clusters), then cleaned with morphological opening and closing and connected-component analysis to isolate a candidate bright region.</p>
-        <div class="tags"><span class="tag">K-means</span><span class="tag">Morphology</span><span class="tag">OpenCV</span><span class="tag">NumPy</span></div>
-        <a class="link" href="https://github.com/sibaaasi/Medical-image-processing/blob/main/README-segmentation.md" target="_blank" rel="noopener">Read the write-up ↗</a>
-      </article>
+        <p class="lead">
+          Electrical engineer interested in medical technology, signal
+          processing, machine learning, and sustainable energy.
+        </p>
 
-      <article class="card reveal">
-        <div class="card-top"><h3>Object counting in noisy images</h3><span class="num">02</span></div>
-        <p>A classical pipeline to separate and count objects in a noisy grayscale image: Otsu thresholding, median filtering, boundary extraction by erosion, flood-fill, and 8-connected component labelling.</p>
-        <div class="tags"><span class="tag">Otsu thresholding</span><span class="tag">Median filter</span><span class="tag">Connected components</span></div>
-        <a class="link" href="https://github.com/sibaaasi/Medical-image-processing/blob/main/README-segmentation.md" target="_blank" rel="noopener">Read the write-up ↗</a>
-      </article>
+        <div class="btns">
+          <a href="#projects" class="btn btn-primary">See my work</a>
+          <a href="mailto:sibaaasi@gmail.com" class="btn btn-ghost">
+            Get in touch
+          </a>
+        </div>
 
-      <article class="card reveal">
-        <div class="card-top"><h3>Handwritten-digit classification with KNN</h3><span class="num">03</span></div>
-        <p>A K-nearest-neighbours classifier written in NumPy and run on MNIST (70/30 split, 784 features per image), studying how the number of neighbours affects accuracy across odd K from 1 to 19.</p>
-        <div class="result">≈ 97.2% accuracy at K = 3</div>
-        <div class="tags"><span class="tag">NumPy</span><span class="tag">MNIST</span><span class="tag">Pattern recognition</span></div>
-        <a class="link" href="https://github.com/sibaaasi/Medical-image-processing/blob/main/README-knn.md" target="_blank" rel="noopener">Read the write-up ↗</a>
-      </article>
-
-      <article class="card reveal">
-        <div class="card-top"><h3>Image basics, edge and coin detection</h3><span class="num">04</span></div>
-        <p>From raw pixel values to detecting circular objects: resizing, grayscale conversion, rotation, Sobel and Laplacian edge detection, Canny edges and the Hough circle transform to count coins and measure their diameters.</p>
-        <div class="tags"><span class="tag">Sobel</span><span class="tag">Canny</span><span class="tag">Hough transform</span><span class="tag">OpenCV</span></div>
-        <a class="link" href="https://github.com/sibaaasi/Medical-image-processing/blob/main/README-image-basics.md" target="_blank" rel="noopener">Read the write-up ↗</a>
-      </article>
-
-      <article class="card reveal">
-        <div class="card-top"><h3>A sigmoid neuron from scratch</h3><span class="num">05</span></div>
-        <p>A single artificial neuron trained with forward pass, mean squared error, hand-derived gradients and gradient descent. Pure NumPy, no deep-learning framework, to show the maths behind the training loop.</p>
-        <div class="tags"><span class="tag">NumPy</span><span class="tag">Gradient descent</span><span class="tag">Backpropagation</span></div>
-        <a class="link" href="https://github.com/sibaaasi/Medical-image-processing/blob/main/README-neuron.md" target="_blank" rel="noopener">Read the write-up ↗</a>
-      </article>
-
-    </div>
-    <p class="sec-note reveal" style="margin-top:1.5rem;">All code and notebooks: <a href="https://github.com/sibaaasi/Medical-image-processing" target="_blank" rel="noopener" style="color:var(--purple);font-weight:600;">github.com/sibaaasi/Medical-image-processing ↗</a></p>
-  </section>
-
-  <section id="skills">
-    <div class="sec-head reveal"><h2>Skills</h2></div>
-    <div class="skills reveal">
-      <div class="skill-box">
-        <h3>Image processing</h3>
-        <ul><li>Segmentation</li><li>Edge detection</li><li>Morphological operations</li><li>Object detection</li></ul>
+        <svg class="pulse" viewBox="0 0 800 70"
+             preserveAspectRatio="none" aria-hidden="true">
+          <path d="M0 35 H180 L200 35 L215 8 L235 62 L250 35
+                   H330 L345 28 L360 35 H520 L535 35 L550 5
+                   L572 64 L588 35 H680 L695 29 L710 35 H800"/>
+        </svg>
       </div>
-      <div class="skill-box">
-        <h3>Machine learning</h3>
-        <ul><li>K-means clustering</li><li>K-nearest neighbours</li><li>Neural network fundamentals</li><li>Gradient descent</li></ul>
-      </div>
-      <div class="skill-box">
-        <h3>Tools</h3>
-        <ul><li>Python</li><li>NumPy · OpenCV</li><li>Matplotlib · Pillow</li><li>TensorFlow / Keras</li><li>Jupyter · Google Colab</li></ul>
-      </div>
+
+      <!-- PROJECTS -->
+      <section id="projects">
+        <div class="sec-head reveal">
+          <h2>Selected projects</h2>
+          <span class="sec-note">Signals · Images · Energy · Hardware</span>
+        </div>
+
+        <div class="projects">
+
+          <!-- PROJECT 1: FINAL PROJECT -->
+          <article class="card reveal">
+            <div class="card-top">
+              <h3>Navigation without GPS</h3>
+              <span class="num">01</span>
+            </div>
+
+            <p>
+              Co-developed a pedestrian-navigation system that combines
+              smartphone motion sensors and camera data to track movement
+              and reconstruct a 3D path without GPS.
+            </p>
+
+            <div class="tags">
+              <span class="tag">Final project</span>
+              <span class="tag">Python</span>
+              <span class="tag">Signal processing</span>
+              <span class="tag">Sensor data</span>
+              <span class="tag">Computer vision</span>
+            </div>
+
+            <details>
+              <summary>How it works</summary>
+
+              <div class="detail-body">
+                <p>
+                  The system combines accelerometer, gyroscope, barometer,
+                  and camera data to identify steps and movement types.
+                  Optical flow helps distinguish forward and backward
+                  motion, while pressure changes support stair and
+                  elevator detection.
+                </p>
+
+                <p>
+                  A Python application processes the incoming data and
+                  displays the reconstructed route. In one mixed-route
+                  test documented in our report, 29 of 30 movements were
+                  classified correctly.
+                </p>
+
+                <p class="project-note">
+                  Team project with Rabeea Bulbul. The linked project book
+                  is the current draft and may be updated.
+                </p>
+              </div>
+            </details>
+
+            <div class="project-actions">
+              <!-- Requires this PDF inside your assets folder -->
+              <a class="link"
+                 href="assets/pedestrian-navigation-report.pdf"
+                 target="_blank" rel="noopener">
+                Read the report ↗
+              </a>
+
+              <a class="link"
+                 href="mailto:sibaaasi@gmail.com?subject=Navigation%20without%20GPS">
+                Ask about this project →
+              </a>
+            </div>
+          </article>
+
+          <!-- PROJECT 2: MEDICAL COURSEWORK -->
+          <article class="card reveal">
+            <div class="card-top">
+              <h3>Medical image processing &amp; pattern recognition</h3>
+              <span class="num">02</span>
+            </div>
+
+            <p>
+              A collection of Python exercises exploring how images are
+              processed, segmented, and classified—from detecting edges
+              and counting objects to brain-image segmentation and
+              handwritten-digit recognition.
+            </p>
+
+            <div class="tags">
+              <span class="tag">Python</span>
+              <span class="tag">NumPy</span>
+              <span class="tag">OpenCV</span>
+              <span class="tag">Image segmentation</span>
+              <span class="tag">Pattern recognition</span>
+            </div>
+
+            <details>
+              <summary>Explore the exercises</summary>
+
+              <div class="detail-body">
+                <ul class="exercise-list">
+                  <li>
+                    <strong>Brain-image segmentation</strong>
+                    <p>
+                      Clustered grayscale pixel intensities with K-means,
+                      comparing 3, 4, and 5 clusters. Applied morphological
+                      opening, closing, and connected-component analysis
+                      to isolate a candidate bright region.
+                    </p>
+                  </li>
+
+                  <li>
+                    <strong>Object counting in noisy images</strong>
+                    <p>
+                      Built a processing pipeline using Otsu thresholding,
+                      median filtering, boundary extraction, flood-fill,
+                      and 8-connected component labelling.
+                    </p>
+                  </li>
+
+                  <li>
+                    <strong>Handwritten-digit classification with KNN</strong>
+                    <p>
+                      Implemented a K-nearest-neighbours classifier in
+                      NumPy for MNIST and compared how different values
+                      of K affect classification accuracy.
+                    </p>
+                  </li>
+
+                  <li>
+                    <strong>Image basics, edge and coin detection</strong>
+                    <p>
+                      Explored resizing, grayscale conversion, rotation,
+                      Sobel and Laplacian filters, Canny edges, and the
+                      Hough circle transform to detect and measure coins.
+                    </p>
+                  </li>
+
+                  <li>
+                    <strong>A sigmoid neuron from scratch</strong>
+                    <p>
+                      Implemented a forward pass, mean squared error,
+                      manually derived gradients, and gradient descent
+                      in NumPy to understand the training process.
+                    </p>
+                  </li>
+                </ul>
+              </div>
+            </details>
+
+            <div class="project-actions">
+              <a class="link"
+                 href="https://github.com/sibaaasi/Medical-image-processing"
+                 target="_blank" rel="noopener">
+                View notebooks on GitHub ↗
+              </a>
+            </div>
+          </article>
+
+          <!-- PROJECT 3: ENERGY -->
+          <article class="card reveal">
+            <div class="card-top">
+              <h3>Solar energy: photon-enhanced thermionic emission</h3>
+              <span class="num">03</span>
+            </div>
+
+            <p>
+              A literature-based study of photon-enhanced thermionic
+              emission (PETE), a solar-energy conversion concept that
+              combines light-driven electron excitation with thermal energy.
+            </p>
+
+            <div class="tags">
+              <span class="tag">Sustainable energy</span>
+              <span class="tag">Solar energy</span>
+              <span class="tag">PETE</span>
+              <span class="tag">Technical research</span>
+            </div>
+
+            <details>
+              <summary>About the study</summary>
+
+              <div class="detail-body">
+                <p>
+                  Reviewed the physical principles behind PETE, the role
+                  of semiconductor materials, and the opportunities and
+                  limitations of combining photovoltaic and thermionic
+                  processes.
+                </p>
+
+                <p>
+                  This work connects to my coursework in Energy Conversion,
+                  Photovoltaic Energy Conversion, and the Climate Crisis.
+                </p>
+
+                <p class="project-note">
+                  Literature review based on published research,
+                  including Schwede et al. (2010).
+                </p>
+              </div>
+            </details>
+
+            <div class="project-actions">
+              <!-- Requires this PDF inside your assets folder -->
+              <a class="link"
+                 href="assets/pete-research.pdf"
+                 target="_blank" rel="noopener">
+                Read the report ↗
+              </a>
+            </div>
+          </article>
+
+          <!-- PROJECT 4: VLSI -->
+          <article class="card reveal">
+            <div class="card-top">
+              <h3>VLSI: registered arithmetic unit</h3>
+              <span class="num">04</span>
+            </div>
+
+            <p>
+              Worked on a digital arithmetic unit in Cadence Virtuoso,
+              combining registers and Kogge–Stone adders to compute
+              X = A + B and Y = X − C from signed 4-bit inputs.
+            </p>
+
+            <div class="tags">
+              <span class="tag">VLSI</span>
+              <span class="tag">Cadence Virtuoso</span>
+              <span class="tag">CMOS 45 nm</span>
+              <span class="tag">Digital design</span>
+            </div>
+
+            <details>
+              <summary>Design approach</summary>
+
+              <div class="detail-body">
+                <p>
+                  The design uses a 4-bit adder for the first sum and a
+                  5-bit adder for subtraction through two’s-complement
+                  arithmetic, with 5-bit intermediate and output registers.
+                </p>
+
+                <p>
+                  The workflow covered schematic design, simulation,
+                  layout, and DRC/LVS checks to investigate physical-design
+                  and connectivity issues.
+                </p>
+
+                <p class="project-note">
+                  Team project with Raghad.
+                </p>
+              </div>
+            </details>
+
+            <div class="project-actions">
+              <a class="link"
+                 href="mailto:sibaaasi@gmail.com?subject=VLSI%20arithmetic%20unit">
+                Ask about this project →
+              </a>
+            </div>
+          </article>
+
+          <!-- PROJECT 5: DEEP LEARNING -->
+          <article class="card reveal">
+            <div class="card-top">
+              <h3>Deep learning: hybrid branch prediction</h3>
+              <span class="num">05</span>
+            </div>
+
+            <p>
+              Co-developed a branch predictor that pairs a lightweight
+              neural network with a Transformer, directing uncertain cases
+              to the larger model to balance prediction accuracy and
+              model usage.
+            </p>
+
+            <div class="tags">
+              <span class="tag">Python</span>
+              <span class="tag">PyTorch</span>
+              <span class="tag">MLP</span>
+              <span class="tag">Transformer</span>
+              <span class="tag">Model evaluation</span>
+            </div>
+
+            <details>
+              <summary>Approach &amp; results</summary>
+
+              <div class="detail-body">
+                <p>
+                  Evaluated the hybrid approach on 300,000 branch events
+                  from SPEC CPU2006 traces, using a chronological training,
+                  validation, and test split.
+                </p>
+
+                <p>
+                  The hybrid achieved 95.40% test accuracy, compared with
+                  93.91% for the lightweight model alone. The Transformer
+                  handled 16.7% of predictions.
+                </p>
+
+                <p class="project-note">
+                  Team project with Kareem Bwakny and Rabeea Bulbul.
+                </p>
+              </div>
+            </details>
+
+            <div class="project-actions">
+              <!-- Requires this PDF inside your assets folder -->
+              <a class="link"
+                 href="assets/neural-branch-prediction-report.pdf"
+                 target="_blank" rel="noopener">
+                Read the report ↗
+              </a>
+
+              <a class="link"
+                 href="mailto:sibaaasi@gmail.com?subject=Hybrid%20branch%20prediction">
+                Ask about this project →
+              </a>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- SKILLS -->
+      <section id="skills">
+        <div class="sec-head reveal">
+          <h2>Skills</h2>
+        </div>
+
+        <div class="skills reveal">
+          <div class="skill-box">
+            <h3>Programming &amp; analysis</h3>
+            <ul>
+              <li>Python · MATLAB</li>
+              <li>NumPy · OpenCV · Matplotlib</li>
+              <li>PyTorch</li>
+              <li>Jupyter · Google Colab</li>
+            </ul>
+          </div>
+
+          <div class="skill-box">
+            <h3>Signals &amp; machine learning</h3>
+            <ul>
+              <li>Sensor-data processing</li>
+              <li>Image segmentation &amp; morphology</li>
+              <li>Classification &amp; clustering</li>
+              <li>Neural networks &amp; model evaluation</li>
+            </ul>
+          </div>
+
+          <div class="skill-box">
+            <h3>Hardware &amp; energy</h3>
+            <ul>
+              <li>Digital circuit design</li>
+              <li>Cadence Virtuoso · DRC/LVS</li>
+              <li>Control systems</li>
+              <li>Solar-energy conversion principles</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about" class="about">
+        <div class="sec-head reveal">
+          <h2>About</h2>
+        </div>
+
+        <div class="reveal">
+          <p>
+            I'm an electrical engineer with a particular interest in
+            medical technology, signal processing, and sustainable energy.
+            I'm drawn to work where solving technical problems can
+            improve people's lives.
+          </p>
+
+          <p>
+            My projects span image processing, sensor-based navigation,
+            machine learning, and solar-energy research, using Python
+            and MATLAB. I'm open to engineering opportunities where I
+            can contribute, keep learning, and tackle meaningful challenges.
+          </p>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="contact">
+        <div class="reveal">
+          <h2>Let's talk.</h2>
+
+          <p>
+            Open to engineering roles. The fastest way to reach me
+            is by email.
+          </p>
+
+          <a class="mail" href="mailto:sibaaasi@gmail.com">
+            sibaaasi@gmail.com
+          </a>
+        </div>
+      </section>
+
     </div>
-  </section>
+  </main>
 
-  <section id="about" class="about">
-    <div class="sec-head reveal"><h2>About</h2></div>
-    <div class="reveal">
-      <p>I'm an electrical engineer aiming for engineering roles in the medical field. What pulls me there is work where technical precision has a direct effect on patients and clinicians.</p>
-      <p>My projects so far focus on medical image processing and pattern recognition. I like understanding methods from the ground up, which is why several of them are written from scratch rather than assembled from libraries.</p>
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrap foot">
+      <span>© 2026 Siba Aasi</span>
+
+      <span>
+        <a href="https://github.com/sibaaasi"
+           target="_blank" rel="noopener">GitHub</a>
+        ·
+        <a href="https://www.linkedin.com/in/sibaaasi"
+           target="_blank" rel="noopener">LinkedIn</a>
+        ·
+        <a href="mailto:sibaaasi@gmail.com">Email</a>
+      </span>
     </div>
-  </section>
+  </footer>
 
-  <section id="contact" class="contact">
-    <div class="reveal">
-      <h2>Let's talk.</h2>
-      <p>Open to engineering roles in medical technology. The fastest way to reach me is by email.</p>
-      <a class="mail" href="mailto:sibaaasi@gmail.com">sibaaasi@gmail.com</a>
-    </div>
-  </section>
+  <script>
+    if ("IntersectionObserver" in window) {
+      document.documentElement.classList.add("js");
 
-</div>
-</main>
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1
+      });
 
-<footer>
-  <div class="wrap foot">
-    <span>© 2026 YOUR NAME</span>
-    <span><a href="https://github.com/sibaaasi" target="_blank" rel="noopener">GitHub</a> · <a href="mailto:sibaaasi@gmail.com">Email</a></span>
-  </div>
-</footer>
-
-<script>
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-</script>
+      document.querySelectorAll(".reveal").forEach((element) => {
+        observer.observe(element);
+      });
+    }
+  </script>
 
 </body>
 </html>
