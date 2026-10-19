@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Joseph Glyanos — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0a0a0a;
+    --surface: #111111;
+    --border: rgba(255,255,255,0.07);
+    --border-hover: rgba(255,255,255,0.15);
+    --text: #f0ede8;
+    --muted: #666660;
+    --accent: #c8f060;
+    --accent-dim: rgba(200,240,96,0.1);
+    --tag-bg: rgba(255,255,255,0.05);
+    --tag-text: #888882;
+    --font-display: 'Syne', sans-serif;
+    --font-mono: 'DM Mono', monospace;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-mono);
+    font-size: 14px;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  ::selection { background: var(--accent); color: #0a0a0a; }
+
+  .noise {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-size: 200px 200px;
+  }
+
+  .container {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* NAV */
+  nav {
+    padding: 2rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 0.5px solid var(--border);
+    position: sticky;
+    top: 0;
+    background: rgba(10,10,10,0.92);
+    backdrop-filter: blur(12px);
+    z-index: 100;
+  }
+
+  .nav-inner {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-logo {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--text);
+    text-decoration: none;
+    letter-spacing: -0.02em;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--text); }
+
+  /* HERO */
+  .hero {
+    padding: 7rem 0 5rem;
+    border-bottom: 0.5px solid var(--border);
+  }
+
+  .hero-label {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards;
+  }
+
+  .hero-name {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 8vw, 5.5rem);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    color: var(--text);
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 0.6s ease 0.1s forwards;
+  }
+
+  .hero-name span { color: var(--accent); }
+
+  .hero-bio {
+    max-width: 520px;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+    opacity: 0;
+    animation: fadeUp 0.6s ease 0.2s forwards;
+  }
+
+  .hero-links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeUp 0.6s ease 0.3s forwards;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 500;
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    transition: all 0.2s;
+    cursor: pointer;
+    border: none;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: #0a0a0a;
+  }
+
+  .btn-primary:hover { background: #d4f570; transform: translateY(-1px); }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--text);
+    border: 0.5px solid var(--border-hover);
+  }
+
+  .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* SECTIONS */
+  section {
+    padding: 5rem 0;
+    border-bottom: 0.5px solid var(--border);
+  }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 3rem;
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text);
+  }
+
+  .section-count {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+  }
+
+  /* PROJECT CARDS */
+  .projects-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    background: var(--border);
+    border: 0.5px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .project-card {
+    background: var(--bg);
+    padding: 1.75rem 2rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 1rem;
+    align-items: start;
+    transition: background 0.2s;
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+  }
+
+  .project-card:hover { background: var(--surface); }
+
+  .project-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--accent);
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  .project-card:hover::before { opacity: 1; }
+
+  .project-card-left { min-width: 0; }
+
+  .project-top {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .project-name {
+    font-family: var(--font-display);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    letter-spacing: -0.01em;
+  }
+
+  .project-badge {
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 20px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .badge-live { background: rgba(200,240,96,0.12); color: var(--accent); }
+  .badge-private { background: rgba(255,255,255,0.05); color: var(--muted); }
+  .badge-beta { background: rgba(255,180,60,0.12); color: #ffb43c; }
+
+  .project-desc {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .tag {
+    background: var(--tag-bg);
+    color: var(--tag-text);
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 3px;
+    border: 0.5px solid var(--border);
+    letter-spacing: 0.04em;
+  }
+
+  .project-arrow {
+    color: var(--muted);
+    font-size: 16px;
+    margin-top: 2px;
+    transition: color 0.2s, transform 0.2s;
+    flex-shrink: 0;
+  }
+
+  .project-card:hover .project-arrow {
+    color: var(--accent);
+    transform: translate(2px, -2px);
+  }
+
+  /* VICKII WORK */
+  .vickii-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 0.5px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .vickii-card {
+    background: var(--bg);
+    padding: 1.5rem;
+    transition: background 0.2s;
+  }
+
+  .vickii-card:hover { background: var(--surface); }
+
+  .vickii-card-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    background: var(--accent-dim);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    font-size: 14px;
+  }
+
+  .vickii-card-title {
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+  }
+
+  .vickii-card-desc {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+
+  /* SKILLS */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .skill-group-title {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+  }
+
+  .skill-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .skill-list li {
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .skill-list li::before {
+    content: '';
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--border-hover);
+    flex-shrink: 0;
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 3rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: gap;
+  }
+
+  .footer-inner {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer-copy {
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .footer-links a {
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--accent); }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-in {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  /* ABOUT */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .about-text { color: var(--muted); font-size: 13px; line-height: 1.9; }
+  .about-text p + p { margin-top: 1rem; }
+
+  .stat-list { display: flex; flex-direction: column; gap: 1rem; }
+
+  .stat-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-bottom: 1rem;
+    border-bottom: 0.5px solid var(--border);
+  }
+
+  .stat-label { font-size: 11px; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; }
+  .stat-value { font-family: var(--font-display); font-size: 22px; font-weight: 700; color: var(--text); }
+
+  @media (max-width: 600px) {
+    .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .project-card { grid-template-columns: 1fr; }
+    .project-arrow { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="noise"></div>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">JL</a>
+    <ul class="nav-links">
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#vickii">Vickii</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="https://github.com/jozelyanos20000" target="_blank">GitHub ↗️</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+
+  <section class="hero">
+    <p class="hero-label">// Engineer · Builder · Creator</p>
+    <h1 class="hero-name">Joseph<br><span>Glyanos.</span></h1>
+    <p class="hero-bio">
+      My passion is taking initiatives and creating, whether that's a financial intelligence pipeline, a platform for music producers, or a machine learning model from scratch. Finance and music are my main niches, but my scope is much wider.
+    </p>
+    <div class="hero-links">
+      <a href="https://github.com/jozelyanos20000" target="_blank" class="btn btn-primary">GitHub ↗️</a>
+      <a href="mailto:josephglyanos2000@gmail.com" class="btn btn-secondary">Get in touch</a>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="section-header fade-in">
+      <h2 class="section-title">Public projects</h2>
+      <span class="section-count">05 repos</span>
+    </div>
+
+    <div class="projects-grid fade-in">
+
+      <a href="https://rastaudio.com" target="_blank" class="project-card">
+        <div class="project-card-left">
+          <div class="project-top">
+            <span class="project-name">RAST</span>
+            <span class="project-badge badge-beta">Beta</span>
+          </div>
+          <p class="project-desc">A Tinder-style loop discovery platform for music producers. Swipe through audio loops, build your library, and earn credits by contributing. Built mobile-first with a JWT auth system, Cloudflare R2 file storage, and 81 passing tests.</p>
+          <div class="project-tags">
+            <span class="tag">Python</span>
+            <span class="tag">Flask</span>
+            <span class="tag">React</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">Cloudflare R2</span>
+            <span class="tag">Render</span>
+          </div>
+        </div>
+        <span class="project-arrow">↗️</span>
+      </a>
+
+      <a href="https://eliasvocalacademy.com" target="_blank" class="project-card">
+        <div class="project-card-left">
+          <div class="project-top">
+            <span class="project-name">Elias Vocal Academy</span>
+            <span class="project-badge badge-live">Live</span>
+          </div>
+          <p class="project-desc">A full-stack online singing course platform. Users pay via HYP and immediately unlock DRM-protected video lessons streamed through VdoCipher. Handles the full journey from landing page to gated content delivery.</p>
+          <div class="project-tags">
+            <span class="tag">TypeScript</span>
+            <span class="tag">React</span>
+            <span class="tag">Supabase</span>
+            <span class="tag">HYP Payments</span>
+            <span class="tag">VdoCipher</span>
+            <span class="tag">Tailwind</span>
+          </div>
+        </div>
+        <span class="project-arrow">↗️</span>
+      </a>
+
+      <a href="https://github.com/jozelyanos20000/financial-data-pwscraper" target="_blank" class="project-card">
+        <div class="project-card-left">
+          <div class="project-top">
+            <span class="project-name">Financial Report Scraper</span>
+          </div>
+          <p class="project-desc">A Scrapy-based spider that crawls 100 German-listed companies, navigates investor relations pages across 6 languages, and classifies annual vs. interim PDF reports using keyword extraction and PDF text analysis.</p>
+          <div class="project-tags">
+            <span class="tag">Python</span>
+            <span class="tag">Scrapy</span>
+            <span class="tag">Playwright</span>
+            <span class="tag">PyMuPDF</span>
+            <span class="tag">NLP</span>
+          </div>
+        </div>
+        <span class="project-arrow">↗️</span>
+      </a>
+
+      <a href="https://github.com/jozelyanos20000/ml-respiratory-failure" target="_blank" class="project-card">
+        <div class="project-card-left">
+          <div class="project-top">
+            <span class="project-name">ML Respiratory Failure Prediction</span>
+          </div>
+          <p class="project-desc">A machine learning model built to predict respiratory failure risk in patients. Developed during university as an independent research project combining clinical data preprocessing with classification modelling.</p>
+          <div class="project-tags">
+            <span class="tag">Python</span>
+            <span class="tag">Scikit-learn</span>
+            <span class="tag">Pandas</span>
+            <span class="tag">Jupyter</span>
+          </div>
+        </div>
+        <span class="project-arrow">↗️</span>
+      </a>
+
+      <a href="https://github.com/jozelyanos20000/Bank-Data-Enrichment" target="_blank" class="project-card">
+        <div class="project-card-left">
+          <div class="project-top">
+            <span class="project-name">Bank Data Enrichment — Finperks</span>
+          </div>
+          <p class="project-desc">A data enrichment pipeline built for Finperks to process and categorise raw bank transaction data, adding structured metadata to enable downstream financial product personalisation.</p>
+          <div class="project-tags">
+            <span class="tag">Python</span>
+            <span class="tag">Data Engineering</span>
+            <span class="tag">Fintech</span>
+          </div>
+        </div>
+        <span class="project-arrow">↗️</span>
+      </a>
+
+    </div>
+  </section>
+
+  <section id="vickii">
+    <div class="section-header fade-in">
+      <h2 class="section-title">Vickii — AI fintech work</h2>
+      <span class="section-count">Code private</span>
+    </div>
+    <p class="about-text" style="margin-bottom: 2rem; max-width: 580px;">
+      Vickii was an AI-powered fintech startup focused on keeping investors current through newsletters, podcasts, and structured financial intelligence. I worked across product and engineering for 18 months, shipping LLM pipelines, data systems, and user-facing features end-to-end.
+    </p>
+    <div class="vickii-grid fade-in">
+
+      <div class="vickii-card">
+        <div class="vickii-card-icon">⚡</div>
+        <div class="vickii-card-title">Why It Moves</div>
+        <p class="vickii-card-desc">Real-time stock price movements mapped to causal news events. Built a pipeline to filter genuine market signals from noise, establish temporal relevance, and generate hallucination-free explanations via LLM — in production, reliably.</p>
+        <div class="project-tags">
+          <span class="tag">LLM</span><span class="tag">Python</span><span class="tag">Tavily</span><span class="tag">Prompt Engineering</span>
+        </div>
+      </div>
+
+      <div class="vickii-card">
+        <div class="vickii-card-icon">📄</div>
+        <div class="vickii-card-title">Stock One-Pager Generator</div>
+        <p class="vickii-card-desc">Automated generation of structured stock intelligence handouts — pulling analyst ratings, earnings data, and news into a single formatted document per stock. Also integrated ElevenLabs to convert one-pagers into audio podcasts.</p>
+        <div class="project-tags">
+          <span class="tag">Python</span><span class="tag">GPT-4</span><span class="tag">ElevenLabs</span><span class="tag">REST APIs</span>
+        </div>
+      </div>
+
+      <div class="vickii-card">
+        <div class="vickii-card-icon">📈</div>
+        <div class="vickii-card-title">Weekly Stock Performance Handout</div>
+        <p class="vickii-card-desc">A weekly automated pipeline covering ~60 stocks. Fetched price performance, computed relative metrics, and generated structured summaries delivered to users every week without manual intervention.</p>
+        <div class="project-tags">
+          <span class="tag">Python</span><span class="tag">GPT-4</span><span class="tag">Automation</span>
+        </div>
+      </div>
+
+      <div class="vickii-card">
+        <div class="vickii-card-icon">🎙️</div>
+        <div class="vickii-card-title">Expert Opinion Handouts</div>
+        <p class="vickii-card-desc">Extracted structured expert opinions from podcast transcriptions using LLMs, then formatted them into user-ready handouts. Built the full pipeline from transcript ingestion to structured output.</p>
+        <div class="project-tags">
+          <span class="tag">Whisper</span><span class="tag">GPT-4</span><span class="tag">Python</span>
+        </div>
+      </div>
+
+      <div class="vickii-card">
+        <div class="vickii-card-icon">🧭</div>
+        <div class="vickii-card-title">Personalised Onboarding System</div>
+        <p class="vickii-card-desc">An AI-driven onboarding flow capturing user interests, risk tolerance, and investment goals. Used responses to personalise the content feed and tailor the weekly newsletter output per user.</p>
+        <div class="project-tags">
+          <span class="tag">GPT-4</span><span class="tag">Python</span><span class="tag">Product</span>
+        </div>
+      </div>
+
+      <div class="vickii-card">
+        <div class="vickii-card-icon">🔥</div>
+        <div class="vickii-card-title">Trending Topic One-Pagers</div>
+        <p class="vickii-card-desc">Automated detection of trending market topics and generation of structured one-pagers with TL;DR summaries and headline breakdowns — giving users fast context on what the market was talking about.</p>
+        <div class="project-tags">
+          <span class="tag">Tavily</span><span class="tag">GPT-4</span><span class="tag">Python</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="section-header fade-in">
+      <h2 class="section-title">About</h2>
+    </div>
+    <div class="about-grid fade-in">
+      <div class="about-text">
+        <p>I'm an engineer who thinks like a PM. I build end-to-end — from scoping and system design to shipping and iterating. I don't wait for someone to hand me a problem; I find it, frame it, and solve it.</p>
+        <p>My background spans fintech AI systems, consumer web apps, data pipelines, and ML. Outside of work I'm building RAST — a loop discovery platform for music producers — and releasing music.</p>
+        <p>I hold a Bachelor's in Industrial Engineering and Management, IMRO membership, and a Sony Publishing deal.</p>
+      </div>
+      <div class="stat-list">
+        <div class="stat-item">
+          <span class="stat-label">Experience</span>
+          <span class="stat-value">18 mo</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Primary stack</span>
+          <span class="stat-value">Python · TS</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Niches</span>
+          <span class="stat-value">Finance · Music</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Based in</span>
+          <span class="stat-value">Berlin</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <span class="footer-copy">©️ 2026 Joseph Glyanos</span>
+    <div class="footer-links">
+      <a href="https://github.com/jozelyanos20000" target="_blank">GitHub</a>
+      <a href="mailto:josephglyanos2000@gmail.com">Email</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
